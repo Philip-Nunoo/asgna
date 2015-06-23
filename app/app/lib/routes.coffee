@@ -9,7 +9,9 @@ Router.map ->
 		path: '/'
 		name: 'home'
 		controller: 'HomeController'
-		action: 'action'
+		action: ->
+		    @render 'homeNavigation', to: 'topNavigation'
+		    @render 'Home'
 		where: 'client'
 
 	@route 'signUp',
