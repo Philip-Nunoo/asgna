@@ -18,5 +18,7 @@ Router.map ->
 		path: '/signup'
 		name: 'signUp'
 		controller: 'HomeController'
-		action: 'action'
+		action: ->
+		    @render 'homeNavigation', to: 'topNavigation'
+		    @render 'signUp'
 		where: 'client'
