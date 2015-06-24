@@ -20,5 +20,6 @@ Router.map ->
 		controller: 'HomeController'
 		action: ->
 		    @render 'userNavigationTwo', to: 'topNavigation'
+		    @render 'footerOne', to: 'footer'
 		    @render 'signUp'
 		where: 'client'
