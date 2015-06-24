@@ -23,3 +23,23 @@ Router.map ->
 		    @render 'footerOne', to: 'footer'
 		    @render 'signUp'
 		where: 'client'
+
+	@route 'createUser',
+		path: '/signup/create-user'
+		name: 'createUser'
+		controller: 'HomeController'
+		action: ->
+		    @render 'userNavigationTwo', to: 'topNavigation'
+		    @render 'footerOne', to: 'footer'
+		    @render 'userSignUp'
+		where: 'client'
+
+	@route 'createAssistant',
+		path: '/signup/create-user-assist'
+		name: 'createAssistant'
+		controller: 'HomeController'
+		action: ->
+			@render 'userNavigationTwo', to: 'topNavigation'
+			@render 'footerOne', to: 'footer'
+			@render 'asssitantSignUp'
+		where: 'client'
