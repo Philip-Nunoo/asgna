@@ -32,3 +32,39 @@
 		</div>
 	</div>
 </template>
+<template name="userSignUp">
+	<div id='userSignUp'>
+		<div class="container">
+			<div class="row vertical-center-row">
+				<div class="col-lg-12">
+					<div class="row ">
+						<div class="col-xs-4 col-xs-offset-4">
+							Welcome to the user sign up page
+							<div>
+								{{> atForm state='signUp'}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<template name='assitantSignUp'>
+	<div id="assistantSignUp">
+		<div class="container">
+			<div class="row vertical-center-row">
+				<div class="col-lg-12">
+					<div class="row ">
+						<div class="col-xs-4 col-xs-offset-4" style="background:red;color:white">
+							Welcome to the assistant sign up page
+							<div>
+								{{> atForm state='signUp'}}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

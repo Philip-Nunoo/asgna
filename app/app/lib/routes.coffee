@@ -41,5 +41,5 @@ Router.map ->
 		action: ->
 			@render 'userNavigationTwo', to: 'topNavigation'
 			@render 'footerOne', to: 'footer'
-			@render 'asssitantSignUp'
+			@render 'assitantSignUp'
 		where: 'client'
