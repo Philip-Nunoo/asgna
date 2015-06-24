@@ -1,6 +1,6 @@
 Router.configure
-	layoutTemplate: 'MasterLayout',
-	loadingTemplate: 'Loading',
+	layoutTemplate: 'MasterLayout'
+	loadingTemplate: 'Loading'
 	notFoundTemplate: 'NotFound'
 
 
