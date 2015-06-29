@@ -10,7 +10,7 @@ Router.map ->
 		name: 'home'
 		controller: 'HomeController'
 		action: ->
-		    @render 'homeNavigation', to: 'topNavigation'
+		    # @render 'homeNavigation', to: 'topNavigation'
 		    @render 'Home'
 		where: 'client'
 
@@ -42,4 +42,22 @@ Router.map ->
 			@render 'userNavigationTwo', to: 'topNavigation'
 			@render 'footerOne', to: 'footer'
 			@render 'assitantSignUp'
+		where: 'client'
+
+	@route 'dashboard',
+		path: '/dashboard'
+		name: 'dashboard'
+		action: ->
+			if Meteor.userId()
+				if Meteor.user().isUser() 
+					console.log 'userpage'
+					# Router.go 'userPage'
+				else if Meteor.user().isProvider()
+					console.log 'providerPage'
+					# Router.go 'providerPage'
+				else
+					console.log 'home'
+					# Router.go 'home'
+			else
+				Router.go 'signUp'
 		where: 'client'

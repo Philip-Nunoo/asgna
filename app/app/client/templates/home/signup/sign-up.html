@@ -39,6 +39,15 @@
 				<div class="col-lg-12">
 					<div class="row ">
 						<div class="col-xs-4 col-xs-offset-4">
+							<!-- <form id="at-pwd-form" action="#" method="POST" novalidate>
+								{{> appAtGroupFields}}
+
+								{{#if showForgotPasswordLink}}
+								{{> atPwdLink}}
+								{{/if}}
+
+								{{> atPwdFormBtn}}
+							</form> -->
 							Welcome to the user sign up page
 							<div>
 								{{> atForm state='signUp'}}
@@ -49,6 +58,20 @@
 			</div>
 		</div>
 	</div>
+</template>
+<template name="appAtPwdForm">
+  <div class="at-pwd-form">
+    <form id="at-pwd-form" action="#" method="POST" novalidate>
+      <!-- Moved the iteration to appAtGroupFields -->
+      {{> appAtGroupFields}}
+ 
+      {{#if showForgotPasswordLink}}
+        {{> atPwdLink}}
+      {{/if}}
+ 
+      {{> atPwdFormBtn}}
+    </form>
+  </div>
 </template>
 <template name='assitantSignUp'>
 	<div id="assistantSignUp">
@@ -67,4 +90,23 @@
 			</div>
 		</div>
 	</div>
+</template>
+<template name='appAtGroupFields'>
+	{{#each fields}}
+	{{#if options.dividerBefore}}<hr>{{/if}}
+
+	<!-- Collect grouped fields, possibly outputting nothing until the group is ended -->
+	{{#with collectFields this}}
+	{{#if isArray this}}
+	<!-- Group container -->
+	<div class="{{numberToWord this.length}} fields">
+		{{#each this}}
+		{{> atInput}}
+		{{/each}}
+	</div>
+	{{else}}
+	{{> atInput}}
+	{{/if}}
+	{{/with}}
+	{{/each}}
 </template>
