@@ -1,0 +1,81 @@
+<template name='userSettings'>
+	<div id="userSettings">		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div>
+						{{> settingsSideBar}}
+					</div>
+				</div>
+				<div class="col-md-9">
+					<fieldset>
+						<legend>
+							<span>
+								{{#if $.Session.get 'basicProfileEdit'}}
+								Edit
+								{{/if}}
+								Account
+							</span>
+							<a class="pull-right edit-basic-form">
+								{{#unless $.Session.get 'basicProfileEdit'}}
+								Edit
+								{{else}}
+								Cancel
+								{{/unless}}
+							</a>
+						</legend>	
+
+						{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
+						<div>
+							{{#unless $.Session.get 'basicProfileEdit'}}
+							{{>userBasicDetailsView}}
+							{{else}}
+							Editing basic profile
+
+							{{> afQuickField name="profile.firstName"}}
+							{{> afQuickField name="profile.lastName"}}
+							{{> afQuickField name="emails.0.address"}}
+							{{/unless}}
+						</div>
+						{{/autoForm}}
+					</fieldset>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<template name='settingsSideBar'>
+	<div>
+		side bar for settings
+		<h2>Work in progress</h2>
+	</div>
+</template>
+<template name='formTest'>
+	{{#autoForm id="afUpdateDemo" type=formType collection=Collections.People doc=selectedPersonDoc autosave=autoSaveMode}}
+	{{>userBasicDetailsView}}
+	{{/autoForm}}
+</template>
+
+<template name='userBasicDetailsView'>
+	<!-- {{debug this.user.emails}} -->
+	<!-- {{this.user.emails}} -->
+	<div class="userViewDetails">
+		<div class="input">
+			<div class="disp_label">
+				Full Name
+			</div> 
+			<div class="disp_value">
+				{{this.user.fullName}}
+			</div>
+		</div>
+		<div class="input">
+			<div class="disp_label">
+				Email
+			</div> 
+			<div class="disp_value">
+				{{this.user.primaryEmail}}
+			</div>
+		</div>
+	</div>
+	<!-- {{this.emails.0.address}} -->
+</template>
