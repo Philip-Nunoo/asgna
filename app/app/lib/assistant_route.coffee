@@ -5,7 +5,7 @@ Router.map ->
 		# controller: 'HomeController'
 		action: ->
 			if Meteor.user()?.isUser()? 
-				@render 'userNavigationTwo', to: 'topNavigation'
+				@render 'dashboardNavigation', to: 'topNavigation'
 				@render 'footerOne', to: 'footer'
 				@render 'userDashboard'
 			else
