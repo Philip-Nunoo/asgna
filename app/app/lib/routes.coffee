@@ -71,7 +71,7 @@ Router.map ->
 		action: ->
 			if Meteor.user()?
 				if Meteor.user().isUser() 
-					Router.go 'userPage'
+					Router.go 'userDashboard'
 				else if Meteor.user().isProvider()
 					console.log 'providerPage'
 					# Router.go 'providerPage'
