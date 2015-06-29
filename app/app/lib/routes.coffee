@@ -57,10 +57,9 @@ Router.map ->
 		path: '/dashboard'
 		name: 'dashboard'
 		action: ->
-			if Meteor.userId()
+			if Meteor.user()?
 				if Meteor.user().isUser() 
-					console.log 'userpage'
-					# Router.go 'userPage'
+					Router.go 'userPage'
 				else if Meteor.user().isProvider()
 					console.log 'providerPage'
 					# Router.go 'providerPage'
