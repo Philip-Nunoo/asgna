@@ -53,6 +53,18 @@ Router.map ->
 				Router.go 'dashboard'
 		where: 'client'
 
+	@route 'loginUser',
+		path: '/login'
+		name: 'loginUser'
+		controller: 'HomeController'
+		action: ->
+			if !Meteor.userId()?
+				@render 'userNavigationTwo', to: 'topNavigation'
+				@render 'footerOne', to: 'footer'
+				@render 'userSignIn'
+			else
+				Router.go 'dashboard'
+
 	@route 'dashboard',
 		path: '/dashboard'
 		name: 'dashboard'
