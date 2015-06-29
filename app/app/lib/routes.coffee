@@ -19,9 +19,12 @@ Router.map ->
 		name: 'signUp'
 		controller: 'HomeController'
 		action: ->
-		    @render 'userNavigationTwo', to: 'topNavigation'
-		    @render 'footerOne', to: 'footer'
-		    @render 'signUp'
+			if !Meteor.userId()?
+			    @render 'userNavigationTwo', to: 'topNavigation'
+			    @render 'footerOne', to: 'footer'
+			    @render 'signUp'
+			else
+				Router.go 'dashboard'
 		where: 'client'
 
 	@route 'createUser',
@@ -29,9 +32,12 @@ Router.map ->
 		name: 'createUser'
 		controller: 'HomeController'
 		action: ->
-		    @render 'userNavigationTwo', to: 'topNavigation'
-		    @render 'footerOne', to: 'footer'
-		    @render 'userSignUp'
+			if !Meteor.userId()?
+			    @render 'userNavigationTwo', to: 'topNavigation'
+			    @render 'footerOne', to: 'footer'
+			    @render 'userSignUp'
+			else
+				Router.go 'dashboard'
 		where: 'client'
 
 	@route 'createAssistant',
@@ -39,9 +45,12 @@ Router.map ->
 		name: 'createAssistant'
 		controller: 'HomeController'
 		action: ->
-			@render 'userNavigationTwo', to: 'topNavigation'
-			@render 'footerOne', to: 'footer'
-			@render 'assitantSignUp'
+			if !Meteor.userId()?
+				@render 'userNavigationTwo', to: 'topNavigation'
+				@render 'footerOne', to: 'footer'
+				@render 'assitantSignUp'
+			else
+				Router.go 'dashboard'
 		where: 'client'
 
 	@route 'dashboard',
