@@ -2,7 +2,7 @@ Schemas.UserProfile = new SimpleSchema
 	picture:
     	type: String
     	optional:true
-    	label: -> 'userProfilePicture'
+    	label: -> 'Profile picture'
     	autoform:
       		afFieldInput:
         		type: 'fileUpload'
@@ -11,32 +11,22 @@ Schemas.UserProfile = new SimpleSchema
   	firstName:
     	type: String
     	optional: true
-    	label: -> 'userFirstName'
+    	label: -> 'First Name'
 
   	lastName:
     	type: String
     	optional: true
-    	label: -> 'userLastName'
-
-  	licenseNumber:
-    	type: String
-    	optional: true
-    	label: -> 'userLicenseNumber'
-
-  	companyName:
-    	type: String
-    	optional: true
-    	label: -> 'userCompanyName'
+    	label: -> 'Last Name'
 
   	birthday:
     	type: Date
     	optional: true
-    	label: -> 'userBirthday'
+    	label: -> 'Birth date'
 
   	country:
     	type: String
     	optional: true
-    	label: -> 'country'
+    	label: -> 'Country'
     	# autoform: 
      #  		options: ->        
      #    		obj = {label: country, value: country} for country in Utils.countryList
@@ -50,18 +40,6 @@ Schemas.UserProfile = new SimpleSchema
     	type: String
     	optional: true
     	label: -> 'city'
-
-  	billingAddress:
-    	type: String
-    	optional: true
-    	label: -> 'billingAddress'
-    	autoform: 
-      		rows: 3
-
-  	vatNumber:
-    	type: String
-    	optional: true
-    	label: -> 'vatNumber'
 
 Schemas.UserSettings = new SimpleSchema
 	smsNotifications:
@@ -109,6 +87,12 @@ Schemas.User = new SimpleSchema
 Meteor.users.attachSchema Schemas.User
 
 Meteor.users.helpers
+  fullName: ->
+    "#{@profile.firstName} #{@profile.lastName}"
+
+  primaryEmail: ->
+    @emails[0].address
+    
   isUser: ->
     true
 
