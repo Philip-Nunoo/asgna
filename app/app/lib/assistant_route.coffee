@@ -10,7 +10,7 @@ Router.map ->
 				@render 'userDashboard'
 			else
 		    # @render 'homeNavigation', to: 'topNavigation'
-		    	@render 'loginUser'
+		    	Router.go 'loginUser'
 		where: 'client'
 
 	@route 'userSettings',
@@ -25,5 +25,5 @@ Router.map ->
 				@render 'userSettings'
 			else
 		    # @render 'homeNavigation', to: 'topNavigation'
-		    	@render 'loginUser'
+		    	Router.go 'loginUser'
 		where: 'client'
