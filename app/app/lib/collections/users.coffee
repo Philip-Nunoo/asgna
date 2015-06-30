@@ -55,7 +55,7 @@ Schemas.User = new SimpleSchema
     	type: [Object]
     	optional: true
 
-  	"emails.$.address":
+  "emails.$.address":
     	type: String
     	regEx: SimpleSchema.RegEx.Email
     	label: -> 'email'

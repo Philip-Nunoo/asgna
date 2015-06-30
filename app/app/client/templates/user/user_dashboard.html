@@ -1,5 +1,62 @@
 <template name='userDashboard'>
 	<div id="userDashboard">
-		welcome to users dashboard
+		<div class="container">
+			<div class="row vertical-center-row">
+				<div class="col-lg-11 col-lg-offset-1">
+					<div class="row">
+						<div class="col-md-9">
+							{{#if currentUser.emails.[0].verified}}
+							<div>
+								Please go ahead and verify you email to proceed
+							</div>
+							{{else}}
+							{{> welcomeUserPage}}
+							{{/if}}
+						</div>
+						<div class="col-md-3">
+							<div class="border-radius white padding-TLBR">
+								<h3>Work in progress</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+<template name='welcomeUserPage'>
+	<div class="border-radius white padding-TLBR">
+		<div>
+			Welcome relax create a task or find a talent
+			We want to help you and this is how we work
+			<div>
+				<div>
+					Create a request 
+				</div>
+				<div>
+					Talents show interest
+				</div>
+				<div>
+					Run them throw a trial by you
+					and select someone.
+				</div>
+			</div>
+			or
+			<div>
+				<div>
+					Look at talents on our platform
+				</div>
+				<div>
+					See their past tasks and reviews
+				</div>
+				<div>
+					Just connect and finish asap.
+				</div>
+			</div>
+		</div>
+		<div>
+			<button class="custBtn">Make Request</button>
+			<button class="custBtn">Look for talents</button>
+		</div>
 	</div>
 </template>
