@@ -1,0 +1,5 @@
+<template name='requestForm'>
+	<div id="requestForm">
+	{{> quickForm collection='Requests' type='insert' id='insertRequestForm' omitFields="createdAt, updatedAt, owner"}}
+	</div>
+</template>
