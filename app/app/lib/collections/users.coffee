@@ -94,7 +94,7 @@ Meteor.users.helpers
     @emails[0].address
     
   isUser: ->
-    true
+    @roles.indexOf('customer') == 0
 
   isProvider: ->
-    false
+    @roles.indexOf('assistant') == 0

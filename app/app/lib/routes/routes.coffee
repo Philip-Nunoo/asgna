@@ -73,11 +73,9 @@ Router.map ->
 				if Meteor.user().isUser() 
 					Router.go 'userDashboard'
 				else if Meteor.user().isProvider()
-					console.log 'providerPage'
-					# Router.go 'providerPage'
+					Router.go 'assistantDashboard'
 				else
-					console.log 'home'
-					# Router.go 'home'
+					Router.go 'signUp'
 			else
 				Router.go 'signUp'
 		where: 'client'
@@ -87,5 +85,5 @@ Router.map ->
 		name: 'signout'
 		action: ->
 			Meteor.logout ->
-				Router.go 'dashboard'
+				Router.go 'loginUser'
 			@next()
