@@ -20,3 +20,4 @@ accounts-google
 useraccounts:bootstrap
 dburles:collection-helpers
 raix:handlebar-helpers
+alanning:roles
