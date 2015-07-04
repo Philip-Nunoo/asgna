@@ -18,6 +18,10 @@ AccountsTemplates.addFields [
 
 	options:
 		dividerBefore: true
+,
+	_id: "assistant"
+	type: "hidden"
+	required: false
 
 ]
 

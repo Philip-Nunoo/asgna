@@ -38,3 +38,8 @@ number_words = [
   'fifteen'
   'sixteen'
 ]
+
+Template.assitantSignUp.rendered =  ->
+  Meteor.setTimeout ->
+    $('#at-field-assistant').val 'assistant'
+  , 100
