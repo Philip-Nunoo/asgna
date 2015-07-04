@@ -81,3 +81,11 @@ Router.map ->
 			else
 				Router.go 'signUp'
 		where: 'client'
+
+	@route 'sign-out',
+		path: '/signout'
+		name: 'signout'
+		action: ->
+			Meteor.logout ->
+				Router.go 'dashboard'
+			@next()
