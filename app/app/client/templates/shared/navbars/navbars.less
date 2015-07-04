@@ -34,29 +34,48 @@
 			}
 
 			.navbar-nav{
-				li{					
-					padding-top: 12px;
-					padding-bottom: 12px;
+				ul{
 
-					a{
-						color: #333;
-						padding: 10px 16px;
-						font-weight: 500;
+					li{					
+						padding-top: 12px;
+						padding-bottom: 12px;
 
-						&:hover{
-							color: @blue;
-							background-color: transparent;
-						}
+						a{
+							color: #333;
+							padding: 10px 16px;
+							font-weight: 500;
 
-						&.assist{
-							border: solid 2px #888;
-							padding-left: 30px;
-							padding-right: 30px;
-							border-radius: 5px;
-
-							&:hover{								
+							&:hover{
 								color: @blue;
-								border-color: @blue;
+								background-color: transparent;
+							}
+
+							&.assist{
+								border: solid 2px #888;
+								padding-left: 30px;
+								padding-right: 30px;
+								border-radius: 5px;
+
+								&:hover{								
+									color: @blue;
+									border-color: @blue;
+								}
+							}
+						}
+					}
+
+					&.dropdown-menu{
+						padding: 0px;
+
+						li{
+							padding: 0px;
+
+							&.divider{
+								margin: 0px;
+							}
+
+							a{
+								padding: 8px 20px;
 							}
 						}
 					}
