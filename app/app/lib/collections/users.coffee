@@ -41,6 +41,12 @@ Schemas.UserProfile = new SimpleSchema
     	optional: true
     	label: -> 'city'
 
+    assistantDoc:
+      type: Schemas.AssistantProfileSchema
+      optional: true
+      label: -> 'Assistant Profile'
+
+
 Schemas.UserSettings = new SimpleSchema
 	smsNotifications:
     	label: -> 'userSettingsSMS'
