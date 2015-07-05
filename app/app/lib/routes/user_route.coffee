@@ -44,3 +44,19 @@ Router.map ->
 				@render 'userSettings'
 			else
 		    	Router.go 'loginUser'
+
+	@route 'userProfile',
+		path: '/userSettings/profile'
+		name: 'userSettingsProfile'
+		where: 'client'
+		# yieldRegions:
+		data: ->
+			user: Meteor.user()
+		action: ->
+			if Meteor.user()?
+				@render 'dashboardNavigation', to: 'topNavigation'
+				@render 'footerOne', to: 'footer'
+				@render 'profileSettings', {to: 'settings_side'}
+				@render 'userSettings'
+			else
+		    	Router.go 'loginUser'

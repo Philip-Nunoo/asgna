@@ -51,6 +51,17 @@
 		{{/autoForm}}
 	</fieldset>
 </template>
+<!-- profileSettings -->
+<template name='profileSettings'>
+	<div id="profileSettings">
+		{{#if currentUser.isUser }}
+		Customer profile edit page
+		{{/if}}
+		{{#if currentUser.isProvider}}
+		Assistant User profile settings
+		{{/if}}
+	</div>
+</template>
 
 <template name='settingsSideBar'>
 	<div id='settingsSideBar'>
