@@ -2,52 +2,62 @@
 	<div id="userSettings">		
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<div>
-						{{> settingsSideBar}}
-					</div>
-				</div>
-				<div class="col-md-9">
-					<fieldset>
-						<legend>
-							<span>
-								{{#if $.Session.get 'basicProfileEdit'}}
-								Edit
-								{{/if}}
-								Account
-							</span>
-							<a class="pull-right edit-basic-form">
-								{{#unless $.Session.get 'basicProfileEdit'}}
-								Edit
-								{{else}}
-								Cancel
-								{{/unless}}
-							</a>
-						</legend>	
-
-						{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
-						<div>
-							{{#unless $.Session.get 'basicProfileEdit'}}
-							{{>userBasicDetailsView}}
-							{{else}}
-							Editing basic profile
-
-							{{> afQuickField name="profile.firstName"}}
-							{{> afQuickField name="profile.lastName"}}
-							{{> afQuickField name="emails.0.address"}}
-							{{/unless}}
+				<div class="col-md-10 col-md-offset-1">
+					<div class="row">
+						<div class="col-md-3">
+							<div>
+								{{> settingsSideBar}}
+							</div>
 						</div>
-						{{/autoForm}}
-					</fieldset>
+						<div class="col-md-9">
+							<fieldset>
+								<legend>
+									<span>
+										{{#if $.Session.get 'basicProfileEdit'}}
+										Edit
+										{{/if}}
+										Account
+									</span>
+									<a class="pull-right edit-basic-form">
+										{{#unless $.Session.get 'basicProfileEdit'}}
+										Edit
+										{{else}}
+										Cancel
+										{{/unless}}
+									</a>
+								</legend>	
+
+								{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
+								<div>
+									{{#unless $.Session.get 'basicProfileEdit'}}
+									{{>userBasicDetailsView}}
+									{{else}}
+									Editing basic profile
+
+									{{> afQuickField name="profile.firstName"}}
+									{{> afQuickField name="profile.lastName"}}
+									{{> afQuickField name="emails.0.address"}}
+									{{/unless}}
+								</div>
+								{{/autoForm}}
+							</fieldset>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </template>
 <template name='settingsSideBar'>
-	<div>
-		side bar for settings
-		<h2>Work in progress</h2>
+	<div id='settingsSideBar'>
+		<!-- side bar for settings
+		<h2>Work in progress</h2> -->
+		<ul>
+			<li><a href="">Account</a></li>
+			<li><a href="">Profile</a></li>
+			<li><a href="">Payments</a></li>
+			<li><a href="">Jobs</a></li>
+		</ul>
 	</div>
 </template>
 <template name='formTest'>
