@@ -50,7 +50,7 @@
 			{{> afQuickField name="profile.lastName"}}
 			{{> afQuickField name="emails.0.address"}}
 			<div>
-				<input type="submit" value="Save data"/>
+				<input type="submit" class='btn' value="Save data"/>
 			</div>
 			{{/unless}}
 		</div>
@@ -64,20 +64,26 @@
 		Customer profile edit page
 		{{/if}}
 		{{#if currentUser.isProvider}}
-		<h3>Assistant User profile settings</h3>
-		<div>
-			
-			{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
+		<fieldset>
+			<legend>
+				<h3>Assistant User profile settings</h3>
+			</legend>
 			<div>
-				{{> afQuickField name="profile.assistantDoc.overview" }}
-				{{> afQuickField name="profile.assistantDoc.educationalBackground" }}
-				{{> afQuickField name="profile.assistantDoc.otherCertifications" }}
-				<hr>
-				{{> afQuickField name="profile.assistantDoc.workExperience" }}
-				
+
+				{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
+				<div>
+					{{> afQuickField name="profile.assistantDoc.overview" }}
+					{{> afQuickField name="profile.assistantDoc.educationalBackground" }}
+					{{> afQuickField name="profile.assistantDoc.otherCertifications" }}
+					<hr>
+					{{> afQuickField name="profile.assistantDoc.workExperience" }}
+					<div>
+						<input type="submit" class='btn' value="Save data"/>
+					</div>
+				</div>
+				{{/autoForm}}
 			</div>
-			{{/autoForm}}
-		</div>
+		</fieldset>
 		{{/if}}
 	</div>
 </template>
