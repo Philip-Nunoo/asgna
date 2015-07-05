@@ -10,37 +10,7 @@
 							</div>
 						</div>
 						<div class="col-md-9">
-							<fieldset>
-								<legend>
-									<span>
-										{{#if $.Session.get 'basicProfileEdit'}}
-										Edit
-										{{/if}}
-										Account
-									</span>
-									<a class="pull-right edit-basic-form">
-										{{#unless $.Session.get 'basicProfileEdit'}}
-										Edit
-										{{else}}
-										Cancel
-										{{/unless}}
-									</a>
-								</legend>	
-
-								{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
-								<div>
-									{{#unless $.Session.get 'basicProfileEdit'}}
-									{{>userBasicDetailsView}}
-									{{else}}
-									Editing basic profile
-
-									{{> afQuickField name="profile.firstName"}}
-									{{> afQuickField name="profile.lastName"}}
-									{{> afQuickField name="emails.0.address"}}
-									{{/unless}}
-								</div>
-								{{/autoForm}}
-							</fieldset>
+							{{> yield region="settings_side"}}
 						</div>
 					</div>
 				</div>
@@ -48,13 +18,47 @@
 		</div>
 	</div>
 </template>
+<template name='accountSettings'>
+	<fieldset>
+		<legend>
+			<span>
+				{{#if $.Session.get 'basicProfileEdit'}}
+				Edit
+				{{/if}}
+				Account
+			</span>
+			<a class="pull-right edit-basic-form">
+				{{#unless $.Session.get 'basicProfileEdit'}}
+				Edit
+				{{else}}
+				Cancel
+				{{/unless}}
+			</a>
+		</legend>	
+
+		{{#autoForm id="afUpdateDemo" type=update collection="Meteor.users" doc=this.user}}
+		<div>
+			{{#unless $.Session.get 'basicProfileEdit'}}
+			{{>userBasicDetailsView}}
+			{{else}}
+			Editing basic profile
+
+			{{> afQuickField name="profile.firstName"}}
+			{{> afQuickField name="profile.lastName"}}
+			{{> afQuickField name="emails.0.address"}}
+			{{/unless}}
+		</div>
+		{{/autoForm}}
+	</fieldset>
+</template>
+
 <template name='settingsSideBar'>
 	<div id='settingsSideBar'>
 		<!-- side bar for settings
 		<h2>Work in progress</h2> -->
 		<ul>
-			<li><a href="">Account</a></li>
-			<li><a href="">Profile</a></li>
+			<li><a href="{{pathFor 'userSettings'}}">Account</a></li>
+			<li><a href="{{pathFor 'userSettingsProfile'}}">Profile</a></li>
 			<li><a href="">Payments</a></li>
 			<li><a href="">Jobs</a></li>
 		</ul>
