@@ -11,7 +11,7 @@ Schemas.AssistantProfileSchema = new SimpleSchema
 	educationalBackground:
 		type: [Object]
 		optional: true
-		label: -> 'Educational Background'
+		label: -> 'Add institution'
 
 	"educationalBackground.$.name":
 		type: String
@@ -26,14 +26,30 @@ Schemas.AssistantProfileSchema = new SimpleSchema
 		label: -> "Year of completion"
 
 	otherCertifications:
-		type: [String]
+		type: [Object]
 		optional: true
-		label: -> 'Other Certifications'
+		label: -> 'Add Certificate'
+
+	"otherCertifications.$.name":
+		type: String
+		optional: false
+		label: -> "Name of certification"
+
+	"otherCertifications.$.year":
+		type: String
+		optional: false
+		label: -> "Year awarded"
+
+	"otherCertifications.$.description":
+		type: String
+		optional: false
+		label: -> "Description"
+		autoform:
+			rows: 4
 
 	workExperience:
 		type: [Object]
 		optional: true
-		label: -> 'Work Experience'
 
 	"workExperience.$.place":
 		type: String
