@@ -4,6 +4,8 @@ Router.map ->
 		name: 'assistantDashboard'
 		where: 'client'
 		# controller: 'HomeController'
+		waitOn: ->
+			Meteor.subscribe 'requests'
 		action: ->
 			if Meteor.user()?.isUser()? 
 				@render 'dashboardNavigation', to: 'topNavigation'
@@ -11,3 +13,5 @@ Router.map ->
 				@render 'assistantDashboard'
 			else
 		    	Router.go 'loginUser'
+		data: ->
+			jobs: Requests.find().fetch()

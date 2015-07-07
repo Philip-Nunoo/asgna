@@ -26,6 +26,9 @@
 </template>
 <template name='welcomeUserPage'>
 	<div class="border-radius white padding-TLBR">
+		{{#if requests}}
+		{{> userRequests requests=this.requests}}
+		{{else}}
 		<div>
 			Welcome relax create a task or find a talent
 			We want to help you and this is how we work
@@ -54,9 +57,25 @@
 				</div>
 			</div>
 		</div>
+		{{/if}}
 		<div>
 			<a class="btn btn-primary custBtn" href="{{pathFor 'newRequest'}}">Make Request</a>
 			<!-- <button class="custBtn">Look for talents</button> -->
 		</div>
+	</div>
+</template>
+<template name='userRequests'>
+	<div>
+		{{#each this.requests}}
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div>
+					{{title}}<br/>
+					{{description}}<br/>
+					{{deliveryTime}}<br/>
+				</div>
+			</div>
+		</div>
+		{{/each}}
 	</div>
 </template>

@@ -4,6 +4,10 @@ Router.map ->
 		name: 'userDashboard'
 		where: 'client'
 		# controller: 'HomeController'
+		waitOn: ->
+			Meteor.subscribe 'usersRequests'
+		data: ->
+			requests: Requests.find().fetch()
 		action: ->
 			if Meteor.user()?.isUser()? 
 				@render 'dashboardNavigation', to: 'topNavigation'
