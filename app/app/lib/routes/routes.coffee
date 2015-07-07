@@ -10,8 +10,10 @@ Router.map ->
 		name: 'home'
 		controller: 'HomeController'
 		action: ->
-		    # @render 'homeNavigation', to: 'topNavigation'
-		    @render 'Home'
+			if !Meteor.userId()?
+				@render 'Home'
+			else
+				Router.go 'dashboard'
 		where: 'client'
 
 	@route 'signUp',
